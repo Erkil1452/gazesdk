@@ -4,8 +4,10 @@ from Cython.Build import cythonize
 
 ext_modules=[
     Extension("gazesdk",
-              sources=["gazesdk.pyx"],
-              libraries=["TobiiGazeCore32"]
+		sources=["gazesdk.pyx"],              
+		include_dirs = ['tobii/include'],
+		libraries=["TobiiGazeCore64"],
+		library_dirs = ['tobii/lib'],
     )
 ]
 

@@ -3,3 +3,5 @@
 *.h
 *.pyc
 /build
+/tobii/lib/TobiiGazeCore64.lib
+/*.obj

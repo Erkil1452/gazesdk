@@ -1,5 +1,5 @@
 cimport cgazesdk
-import  Queue
+import  queue
 import threading
 
 def get_version():
@@ -67,7 +67,7 @@ cdef class Tracker:
     cdef object event_loop
     
     def __cinit__(self, url):
-        self.event_queue = Queue.Queue()
+        self.event_queue = queue.Queue()
         cdef cgazesdk.tobiigaze_error_code error_code
         self._tracker = cgazesdk.tobiigaze_create(url, &error_code)
         if error_code > 0: 
@@ -78,7 +78,7 @@ cdef class Tracker:
             cgazesdk.tobiigaze_destroy(self._tracker)
 
     def run_event_loop(self):
-        self.event_loop = threading.Thread(target=self.__run_event_loop)
+        self.event_loop = threading.Thread(target=self.run_event_loop_internal)
         self.event_loop.start()
 
     def run_event_loop_internal(self):

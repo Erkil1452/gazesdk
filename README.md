@@ -1,5 +1,7 @@
 # gazesdk #
 
+This is a Python 3 x64 version of the code from balancana. It also adds information for custom compilation.
+
 Python language bindings implemented in Cython for Tobii GazeSDK C API. 
 
 This is a work in progress. Backwards incompatible changes are possible in the near future. Currently only basic tracking functionality is supported, See TODO below for planned changes.
@@ -34,11 +36,12 @@ t.break_event_loop()
 
 ## Installation (Windows) ##
 
-Dependencies: Python 2.7 32 bit
+Dependencies: Python 3.x 64 bit, MSVS 2013 (or maybe other as well?)
 
-1. From "Releases" download gazesdk-win32.zip
-2. Extract the pyd file 
-3. Copy "TobiiGazeCore32.dll" in the same directory
+1. Download Tobii Gaze SDK and extract it to `tobii`. Version 2.0 was tested.
+2. Copy "TobiiGazeCore64.dll" to the root
+3. Run `python setup.py build_ext --inplace --compiler=msvc`
+4. Test with `python test.py` 
 
 ## TODO ##
 
@@ -51,6 +54,6 @@ Dependencies: Python 2.7 32 bit
 
 The MIT License (MIT)
 
-Copyright (c) 2015 balancana
+Copyright (c) 2015 balancana / erkil1452
 
 Please note that this software relies on proprietary library. Check Tobii's website for more details. 
